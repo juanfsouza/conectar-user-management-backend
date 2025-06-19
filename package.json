@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "npx nest build",
+    "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "heroku-postbuild": "npm install && npm run build",
     "start": "npm run start:prod",
@@ -104,5 +104,9 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "engines": {
+  "node": "22.x",
+  "npm": "10.x"
+}
 }
