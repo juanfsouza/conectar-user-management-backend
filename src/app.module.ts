@@ -24,6 +24,9 @@ import { SeedService } from './seed/seed.service';
         database: configService.get('DATABASE_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: false,
+        ssl: {
+          rejectUnauthorized: false,
+        },
       }),
       inject: [ConfigService],
     }),
