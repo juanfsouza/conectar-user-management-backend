@@ -1,0 +1,14 @@
+{
+    "name": "Conéctar User Management",
+    "description": "Backend for user management",
+    "repository": "https://github.com/your-repo",
+    "keywords": ["node", "nestjs", "heroku"],
+    "buildpacks": [
+    {
+        "url": "heroku/nodejs"
+    }
+    ],
+    "scripts": {
+    "postdeploy": "cd backend && npm run typeorm -- migration:run -d src/data-source.ts"
+    }
+}
