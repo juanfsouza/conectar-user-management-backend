@@ -8,8 +8,8 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "heroku-postbuild": "cd backend && npm install && npm run build",
-    "start": "cd backend && npm run start:prod",
+    "heroku-postbuild": "npm install && npm run build",
+    "start": "npm run start:prod",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -23,8 +23,8 @@
     "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
     "migration:generate": "npm run typeorm -- migration:generate -d src/data-source.ts",
     "migration:revert": "npm run typeorm -- migration:revert -d src/data-source.ts",
-    "preinstall": "cd backend && npm install",
-    "postinstall": "cd backend && npm run build"
+    "preinstall": "npm install",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^3.0.1",
