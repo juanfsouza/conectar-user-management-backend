@@ -1,17 +1,18 @@
 import { NestFactory } from '@nestjs/core';
-  import { AppModule } from './app.module';
-  import { ValidationPipe } from '@nestjs/common';
-  import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-  import helmet from 'helmet';
-  import { AppLoggerService } from './common/logger.service';
-  import * as cors from 'cors';
-  import { SeedService } from './seed/seed.service';
+import { AppModule } from './app.module';
+import { ValidationPipe } from '@nestjs/common';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import helmet from 'helmet';
+import { AppLoggerService } from './common/logger.service';
+import * as cors from 'cors';
+import { SeedService } from './seed/seed.service';
 
-  async function bootstrap() {
+async function bootstrap() {
+  try {
     const app = await NestFactory.create(AppModule, { logger: new AppLoggerService() });
     app.use(helmet());
     app.use(cors({
-      origin: 'https://conectar-user-management-b1b826937ac9.herokuapp.com', // Ajuste para a URL do Heroku
+      origin: 'https://conectar-user-management-b1b826937ac9.herokuapp.com',
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       credentials: true,
     }));
@@ -38,6 +39,10 @@ import { NestFactory } from '@nestjs/core';
     const port = process.env.PORT || 3000;
     await app.listen(port);
     app.get(AppLoggerService).log(`Application is running on: ${await app.getUrl()}`);
+  } catch (error) {
+    console.error('Erro na inicialização:', error);
+    process.exit(1);
   }
+}
 
-  bootstrap();
+bootstrap();
