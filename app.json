@@ -1,7 +1,7 @@
 {
   "name": "Conéctar User Management Backend",
   "description": "Backend for user management with NestJS",
-  "repository": "https://github.com/juanfsouza/usersmanager",
+  "repository": "https://github.com/juanfsouza/conectar-user-management-backend",
   "keywords": ["node", "nestjs", "heroku"],
   "buildpacks": [
     {
