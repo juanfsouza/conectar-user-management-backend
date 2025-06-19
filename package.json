@@ -22,7 +22,9 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:run": "npm run typeorm -- migration:run -d src/data-source.ts",
     "migration:generate": "npm run typeorm -- migration:generate -d src/data-source.ts",
-    "migration:revert": "npm run typeorm -- migration:revert -d src/data-source.ts"
+    "migration:revert": "npm run typeorm -- migration:revert -d src/data-source.ts",
+    "preinstall": "cd backend && npm install",
+    "postinstall": "cd backend && npm run build"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^3.0.1",
